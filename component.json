@@ -1,0 +1,24 @@
+{
+  "name": "noflo-localstorage",
+  "description": "LocalStorage components for NoFlo",
+  "author": "Henri Bergius <henri.bergius@iki.fi>",
+  "repo": "noflo/noflo-localstorage",
+  "version": "0.1.0",
+  "keywords": [
+  ],
+  "dependencies": {
+    "noflo/noflo": "*"
+  },
+  "scripts": [
+    "components/GetItem.coffee",
+    "index.js"
+  ],
+  "json": [
+    "component.json"
+  ],
+  "noflo": {
+    "components": {
+      "GetItem": "components/GetItem.coffee"
+    }
+  }
+}
