@@ -14,6 +14,7 @@ class GetItem extends noflo.Component
         if @outPorts.error.isAttached()
           @outPorts.error.send new Error "#{data} not found"
           @outPorts.error.disconnect()
+        return
       @outPorts.item.beginGroup data
       @outPorts.item.send value
       @outPorts.item.endGroup()
