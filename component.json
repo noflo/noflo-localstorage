@@ -11,6 +11,7 @@
   },
   "scripts": [
     "components/GetItem.coffee",
+    "components/RemoveItem.coffee",
     "components/SetItem.coffee",
     "index.js"
   ],
@@ -20,6 +21,7 @@
   "noflo": {
     "components": {
       "GetItem": "components/GetItem.coffee",
+      "RemoveItem": "components/RemoveItem.coffee",
       "SetItem": "components/SetItem.coffee"
     }
   }
