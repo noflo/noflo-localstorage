@@ -11,6 +11,7 @@ class SetItem extends noflo.Component
       item: new noflo.Port 'string'
 
     @inPorts.key.on 'data', (data) =>
+      return unless data
       @key = data
       do @setItem if @value
     @inPorts.value.on 'data', (data) =>
