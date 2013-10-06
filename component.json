@@ -20,6 +20,7 @@
     "component.json"
   ],
   "noflo": {
+    "icon": "html5",
     "components": {
       "GetItem": "components/GetItem.coffee",
       "ListenRemoteChanges": "components/ListenRemoteChanges.coffee",
