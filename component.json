@@ -12,6 +12,8 @@
   "scripts": [
     "components/GetItem.coffee",
     "components/ListenRemoteChanges.coffee",
+    "components/ListAdd.coffee",
+    "components/ListRemove.coffee",
     "components/RemoveItem.coffee",
     "components/SetItem.coffee",
     "index.js"
@@ -24,6 +26,8 @@
     "components": {
       "GetItem": "components/GetItem.coffee",
       "ListenRemoteChanges": "components/ListenRemoteChanges.coffee",
+      "ListAdd": "components/ListAdd.coffee",
+      "ListRemove": "components/ListRemove.coffee",
       "RemoveItem": "components/RemoveItem.coffee",
       "SetItem": "components/SetItem.coffee"
     }
