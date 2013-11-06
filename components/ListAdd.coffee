@@ -18,8 +18,10 @@ class ListAdd extends noflo.Component
   add: ->
     return unless @listKey and @key
     list = localStorage.getItem @listKey
-    list = '' unless list
-    items = list.split ','
+    if list
+      items = list.split ','
+    else
+      items = []
     items.push @key
     localStorage.setItem @listKey, items.join ','
     if @outPorts.key.isAttached()
