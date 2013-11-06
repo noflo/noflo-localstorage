@@ -13,6 +13,7 @@
     "components/GetItem.coffee",
     "components/ListenRemoteChanges.coffee",
     "components/ListAdd.coffee",
+    "components/ListGet.coffee",
     "components/ListRemove.coffee",
     "components/RemoveItem.coffee",
     "components/SetItem.coffee",
@@ -27,6 +28,7 @@
       "GetItem": "components/GetItem.coffee",
       "ListenRemoteChanges": "components/ListenRemoteChanges.coffee",
       "ListAdd": "components/ListAdd.coffee",
+      "ListGet": "components/ListGet.coffee",
       "ListRemove": "components/ListRemove.coffee",
       "RemoveItem": "components/RemoveItem.coffee",
       "SetItem": "components/SetItem.coffee"
