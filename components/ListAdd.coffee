@@ -22,8 +22,9 @@ class ListAdd extends noflo.Component
       items = list.split ','
     else
       items = []
-    items.push @key
-    localStorage.setItem @listKey, items.join ','
+    if items.indexOf(@key) is -1
+      items.push @key
+      localStorage.setItem @listKey, items.join ','
     if @outPorts.key.isAttached()
       @outPorts.key.send @key
       @outPorts.key.disconnect()
