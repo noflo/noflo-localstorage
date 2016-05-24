@@ -1,5 +1,13 @@
 language: node_js
 node_js:
-  - '4.2'
+- '4.2'
 before_script:
-  - npm install -g grunt-cli
+- npm install -g grunt-cli
+deploy:
+  provider: npm
+  email: henri.bergius@iki.fi
+  api_key:
+    secure: beK1XnLpT13WTVvI1wF0mGE5XUM4n/qyKoI+76+926JbzpopNXPK0E/ZbbBz4LwMgBYrrxrWYNZ/zrsLTxyvVxvXpsAOHmib1YU2KSzajPksJADgyDUH/7bGHYBHmVDn5JpVdEJ/+skLkgCFgDOSn8Kc5tfw28Fqc/YPg72EyEs=
+  on:
+    tags: true
+    repo: noflo/noflo-localstorage
