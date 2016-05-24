@@ -34,6 +34,6 @@ describe 'GetItem component', ->
       err = noflo.internalSocket.createSocket()
       c.outPorts.error.attach err
       err.on 'data', (data) ->
-        chai.expect(data).to.be.an 'object'
+        chai.expect(data).to.be.an 'error'
         done()
       key.send 'GetItemNotDefined'
