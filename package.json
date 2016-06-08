@@ -12,7 +12,7 @@
   },
   "license": "MIT",
   "dependencies": {
-    "noflo": "~0.6.0"
+    "noflo": "~0.7.7"
   },
   "devDependencies": {
     "grunt": "~0.4.1",
@@ -28,5 +28,7 @@
   "scripts": {
     "test": "grunt test"
   },
-  "keywords": ["noflo"]
+  "keywords": [
+    "noflo"
+  ]
 }
