@@ -1,5 +1,7 @@
 noflo = require 'noflo'
 
+# @runtime noflo-browser
+
 class RemoveItem extends noflo.Component
   constructor: ->
     @inPorts =

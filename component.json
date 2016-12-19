@@ -3,9 +3,8 @@
   "description": "LocalStorage components for NoFlo",
   "author": "Henri Bergius <henri.bergius@iki.fi>",
   "repo": "noflo/noflo-localstorage",
-  "version": "0.1.0",
-  "keywords": [
-  ],
+  "version": "0.1.1",
+  "keywords": [],
   "dependencies": {
     "noflo/noflo": "*"
   },
@@ -26,8 +25,8 @@
     "icon": "html5",
     "components": {
       "GetItem": "components/GetItem.coffee",
-      "ListenRemoteChanges": "components/ListenRemoteChanges.coffee",
       "ListAdd": "components/ListAdd.coffee",
+      "ListenRemoteChanges": "components/ListenRemoteChanges.coffee",
       "ListGet": "components/ListGet.coffee",
       "ListRemove": "components/ListRemove.coffee",
       "RemoveItem": "components/RemoveItem.coffee",

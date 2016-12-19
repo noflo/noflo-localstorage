@@ -1,5 +1,7 @@
 noflo = require 'noflo'
 
+# @runtime noflo-browser
+
 class ListAdd extends noflo.Component
   constructor: ->
     @listKey = null
