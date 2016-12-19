@@ -1,5 +1,7 @@
 noflo = require 'noflo'
 
+# @runtime noflo-browser
+
 class ListenChanges extends noflo.Component
   constructor: ->
     @listening = false

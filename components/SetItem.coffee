@@ -1,5 +1,7 @@
 noflo = require 'noflo'
 
+# @runtime noflo-browser
+
 class SetItem extends noflo.Component
   constructor: ->
     @key = null
