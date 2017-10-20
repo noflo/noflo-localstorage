@@ -2,25 +2,30 @@ noflo = require 'noflo'
 
 # @runtime noflo-browser
 
-class ListGet extends noflo.Component
-  constructor: ->
-    @inPorts =
-      key: new noflo.Port 'string'
-    @outPorts =
-      items: new noflo.Port 'string'
-      error: new noflo.Port 'object'
-    @inPorts.key.on 'data', (data) =>
-      value = localStorage.getItem data
-      unless value
-        if @outPorts.error.isAttached()
-          @outPorts.error.send new Error "#{data} not found"
-          @outPorts.error.disconnect()
-        return
-      vals = value.split ','
-      @outPorts.items.beginGroup data
-      @outPorts.items.send val for val in vals
-      @outPorts.items.endGroup()
-    @inPorts.key.on 'disconnect', =>
-      @outPorts.items.disconnect()
-
-exports.getComponent = -> new ListGet
+exports.getComponent = ->
+  c = new noflo.Component
+  c.inPorts.add 'key',
+    datatype: 'string'
+  c.outPorts.add 'items',
+    datatype: 'string'
+  c.outPorts.add 'error',
+    datatype: 'object'
+  c.forwardBrackets =
+    key: ['items', 'error']
+  c.process (input, output) ->
+    return unless input.hasData 'key'
+    key = input.getData 'key'
+    value = localStorage.getItem key
+    unless value
+      output.done new Error "#{key} not found"
+      return
+    list = value.split ','
+    output.send
+      items: new noflo.IP 'openBracket', key
+    for item in list
+      output.send
+        items: item
+    output.send
+      items: new noflo.IP 'closeBracket', key
+    output.done()
+    return
