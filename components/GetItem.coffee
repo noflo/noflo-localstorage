@@ -2,25 +2,23 @@ noflo = require 'noflo'
 
 # @runtime noflo-browser
 
-class GetItem extends noflo.Component
-  constructor: ->
-    @inPorts =
-      key: new noflo.Port 'string'
-    @outPorts =
-      item: new noflo.Port 'string'
-      error: new noflo.Port 'object'
-
-    @inPorts.key.on 'data', (data) =>
-      value = localStorage.getItem data
-      unless value
-        if @outPorts.error.isAttached()
-          @outPorts.error.send new Error "#{data} not found"
-          @outPorts.error.disconnect()
-        return
-      @outPorts.item.beginGroup data
-      @outPorts.item.send value
-      @outPorts.item.endGroup()
-    @inPorts.key.on 'disconnect', =>
-      @outPorts.item.disconnect()
-
-exports.getComponent = -> new GetItem
+exports.getComponent = ->
+  c = new noflo.Component
+  c.inPorts.add 'key',
+    datatype: 'string'
+  c.outPorts.add 'item',
+    datatype: 'string'
+  c.outPorts.add 'error',
+    datatype: 'object'
+  c.forwardBrackets =
+    key: ['item', 'error']
+  c.process (input, output) ->
+    return unless input.hasData 'key'
+    key = input.getData 'key'
+    value = localStorage.getItem key
+    unless value
+      output.done new Error "#{key} not found"
+      return
+    output.sendDone
+      item: value
+    return
