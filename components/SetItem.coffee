@@ -2,33 +2,20 @@ noflo = require 'noflo'
 
 # @runtime noflo-browser
 
-class SetItem extends noflo.Component
-  constructor: ->
-    @key = null
-    @value = null
-    @inPorts =
-      key: new noflo.Port 'string'
-      value: new noflo.Port 'string'
-    @outPorts =
-      item: new noflo.Port 'string'
-
-    @inPorts.key.on 'data', (data) =>
-      return unless data
-      @key = data
-      do @setItem if @value
-    @inPorts.value.on 'data', (data) =>
-      @value = data
-      do @setItem if @key
-
-  setItem: ->
-    localStorage.setItem @key, @value
-    if @outPorts.item.isAttached()
-      @outPorts.item.beginGroup @key
-      @outPorts.item.send @value
-      @outPorts.item.endGroup()
-      @outPorts.item.disconnect()
-
-    @key = null
-    @value = null
-
-exports.getComponent = -> new SetItem
+exports.getComponent = ->
+  c = new noflo.Component
+  c.inPorts.add 'key',
+    datatype: 'string'
+  c.inPorts.add 'value',
+    datatype: 'string'
+  c.outPorts.add 'item',
+    datatype: 'string'
+  c.forwardBrackets =
+    key: ['item']
+  c.process (input, output) ->
+    return unless input.hasData 'key', 'value'
+    [key, value] = input.getData 'key', 'value'
+    localStorage.setItem key, value
+    output.sendDone
+      item: value
+    return

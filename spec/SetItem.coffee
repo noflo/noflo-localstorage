@@ -24,12 +24,6 @@ describe 'SetItem component', ->
     c.outPorts.item.attach item
     item = null
 
-  describe 'when instantiated', ->
-    it 'should not hold a key', ->
-      chai.expect(c.key).to.equal null
-    it 'should not hold a value', ->
-      chai.expect(c.value).to.equal null
-
   describe 'when receiving key and a value', ->
     it 'should send it out', (done) ->
       item.on 'data', (data) ->
