@@ -32,6 +32,9 @@
   "scripts": {
     "test": "grunt test"
   },
+  "noflo": {
+    "icon": "database"
+  },
   "keywords": [
     "noflo"
   ]

@@ -4,6 +4,8 @@ noflo = require 'noflo'
 
 exports.getComponent = ->
   c = new noflo.Component
+  c.description = 'Remove an item from a list'
+  c.icon = 'trash'
   c.inPorts.add 'list',
     datatype: 'string'
     control: true

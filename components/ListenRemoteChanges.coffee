@@ -5,6 +5,7 @@ noflo = require 'noflo'
 exports.getComponent = ->
   c = new noflo.Component
   c.description = 'Listen for changes in localStorage'
+  c.icon = 'hourglass'
   c.inPorts.add 'start',
     datatype: 'bang'
   c.inPorts.add 'stop',

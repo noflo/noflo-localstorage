@@ -4,6 +4,7 @@ noflo = require 'noflo'
 
 exports.getComponent = ->
   c = new noflo.Component
+  c.description = 'Add an item to a list'
   c.inPorts.add 'list',
     datatype: 'string'
     control: true

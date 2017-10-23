@@ -4,6 +4,7 @@ noflo = require 'noflo'
 
 exports.getComponent = ->
   c = new noflo.Component
+  c.description = 'Save an item into LocalStorage'
   c.inPorts.add 'key',
     datatype: 'string'
   c.inPorts.add 'value',
